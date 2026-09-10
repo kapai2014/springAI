@@ -30,7 +30,7 @@ public class ChatMemoryChatClientConfig {
        Advisor tokenUsageAdvisor=new TokenUsageAuditAdvisor();
        Advisor memoryAdvisor = MessageChatMemoryAdvisor.builder(chatMemory).build();
         return chatClientBuilder
-                .defaultAdvisors(List.of(loggerAdvisor,memoryAdvisor))
+                .defaultAdvisors(List.of(loggerAdvisor,memoryAdvisor, tokenUsageAdvisor))
                 .build();
     }
 }
