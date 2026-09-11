@@ -38,7 +38,7 @@ public class RagController {
     @GetMapping("/random/chat")
     public ResponseEntity<String> randomChat(@RequestHeader("username") String username,
                                              @RequestParam("message") String message) {
-        SearchRequest searchRequest =
+     /*   SearchRequest searchRequest =
                SearchRequest.builder().query(message).topK(3).similarityThreshold(0.5).build();
 
         List<Document> similarDocs = vectorStore.similaritySearch(searchRequest);
@@ -51,10 +51,10 @@ public class RagController {
                .map(Document::getText)
               .collect(Collectors.joining(System.lineSeparator()));
 
-        System.out.println("Documents found: " + similarDocs.size());
+        System.out.println("Documents found: " + similarDocs.size());*/
 
         String answer = chatClient.prompt()
-             .system(promptSystemSpec -> promptSystemSpec.text(promptTemplate).param("documents", similarContext))
+           /*  .system(promptSystemSpec -> promptSystemSpec.text(promptTemplate).param("documents", similarContext))*/
              .advisors(a -> a.param(CONVERSATION_ID, username)).user(message).call().content();
         return ResponseEntity.ok(answer);
     }
@@ -63,7 +63,7 @@ public class RagController {
     @GetMapping("/document/chat")
     public ResponseEntity<String> documentChat(@RequestHeader("username") String username,
                                              @RequestParam("message") String message) {
-        SearchRequest searchRequest =
+       /* SearchRequest searchRequest =
                 SearchRequest.builder().query(message).topK(3).similarityThreshold(0.5).build();
 
         List<Document> similarDocs = vectorStore.similaritySearch(searchRequest);
@@ -76,10 +76,10 @@ public class RagController {
                 .map(Document::getText)
                 .collect(Collectors.joining(System.lineSeparator()));
 
-        System.out.println("Documents found: " + similarDocs.size());
+        System.out.println("Documents found: " + similarDocs.size());*/
 
         String answer = chatClient.prompt()
-                .system(promptSystemSpec -> promptSystemSpec.text(hrSystemTemplate).param("documents", similarContext))
+               /* .system(promptSystemSpec -> promptSystemSpec.text(hrSystemTemplate).param("documents", similarContext))*/
                 .advisors(a -> a.param(CONVERSATION_ID, username)).user(message).call().content();
         return ResponseEntity.ok(answer);
     }
