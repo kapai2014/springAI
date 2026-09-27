@@ -13,6 +13,12 @@ target/
 .springBeans
 .sts4-cache
 
+*.exe
+*.dll
+*.lnk
+*.dat
+*.msg
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -31,3 +37,61 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# Ollama
+# Ollama
+/ollama/
+/Models/
+/lib/Ollama.lnk
+
+# Ollama executables and installers
+ollama/
+*.exe
+*.dll
+*.lnk
+*.dat
+*.msg
+
+# Ollama native libraries
+*.so
+*.hsaco
+
+# Ollama databases, logs and cache
+*.mv.db
+*.log
+*.cache
+
+
+ollama/
+lib/ollama/
+
+# Ollama DLL files
+*.dll
+
+# Ollama / native libraries
+*.so
+
+# Ollama kernel files
+*.hsaco
+
+# Logs and cache
+*.log
+*.cache
+
+# Ollama
+ollama/
+lib/ollama/
+
+# Ollama DLL files
+*.dll
+
+# Ollama / native libraries
+*.so
+
+# Ollama kernel files
+*.hsaco
+
+# Logs and cache
+*.log
+*.cache
